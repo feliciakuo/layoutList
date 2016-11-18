@@ -16,3 +16,4 @@ build/
 coverage
 .history/
 src/dlls/
+/.DS_Store

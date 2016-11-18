@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+thead {
+  font-weight: bold;
+  background-color: #010101;
+}
+thead td {
+  color: #656565;
+}
+tr {
+  color: #EFEAE6;
+  line-height: 20px;
+  background-color: #131313;
+  border-bottom: 1px solid #313131;
+}
+tbody tr:hover {
+  background-color: #1D1D1D;
+}
+td {
+  padding: 0 4px;
+}
+td a {
+  color: #BBB;
+  text-decoration: none;
+}
+td a:hover {
+  color: #8C8C00;
+}
+.btnWrap button {
+  margin: 0 2px;
+}

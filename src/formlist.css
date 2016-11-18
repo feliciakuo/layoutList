@@ -1,0 +1,20 @@
+.formWrap {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: -150px;
+  width: 600px;
+  height: 300px;
+  padding: 10px;
+  color: #131313;
+  background-color: #FFF;
+}
+.formWrap label {
+  border-right: 2px solid #313131;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+.formWrap input {
+
+}

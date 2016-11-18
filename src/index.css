@@ -1,0 +1,11 @@
+body {
+  background-color: #131313;
+}
+.layout {
+  width: 1400px;
+  margin: 0 auto;
+}
+.title {
+  text-align: center;
+  color: #FFF;
+}

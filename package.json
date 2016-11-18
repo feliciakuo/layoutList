@@ -1,0 +1,112 @@
+{
+  "name": "laima",
+  "version": "3.0.0-pre",
+  "description": "A suite of Front-End Tool to develop, showcase, and mock API, powered by webpack.",
+  "license": "MIT",
+  "author": {
+    "name": "Lance He (a.k.a. indigofeather)",
+    "email": "indigofeather@gmail.com"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:indigofeather/Laima.git"
+  },
+  "scripts": {
+    "build": "npm run dll:prod; node script/build.js",
+    "build:view": "npm run build; browser-sync start -s build",
+    "dll": "webpack --config ./webpack/dll.config.js",
+    "dll:prod": "webpack --config ./webpack/dll.prod.config.js",
+    "lint": "eslint src",
+    "master": "node script/deploy.js master",
+    "mock": "supervisor -w mock mock/server.js",
+    "release": "node script/deploy.js release",
+    "start": "webpack-dashboard -c cyan -t Laima -- node script/start.js",
+    "test": "jest --coverage",
+    "test:watch": "npm test -- --watch"
+  },
+  "dependencies": {
+    "highlight.js": "9.8.0",
+    "i18next": "4.0.0",
+    "i18next-xhr-backend": "1.2.1",
+    "lodash": "4.17.2",
+    "react": "15.4.0",
+    "react-dom": "15.4.0",
+    "react-i18next": "1.10.1",
+    "react-redux": "4.4.6",
+    "react-router": "4.0.0-alpha.5",
+    "redux": "3.6.0",
+    "whatwg-fetch": "2.0.0"
+  },
+  "devDependencies": {
+    "add-asset-html-webpack-plugin": "1.0.2",
+    "appcache-webpack-plugin": "1.3.0",
+    "autoprefixer": "6.5.3",
+    "babel-core": "6.18.2",
+    "babel-jest": "17.0.2",
+    "babel-loader": "6.2.7",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-lodash": "3.2.9",
+    "babel-plugin-transform-react-constant-elements": "6.9.1",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-latest": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-react-hmre": "1.1.1",
+    "body-parser": "1.15.2",
+    "browser-sync": "2.18.1",
+    "browser-sync-webpack-plugin": "1.1.3",
+    "bs-html-injector": "3.0.3",
+    "case-sensitive-paths-webpack-plugin": "1.1.4",
+    "chalk": "1.1.3",
+    "clean-webpack-plugin": "0.1.14",
+    "copy-webpack-plugin": "4.0.1",
+    "css-loader": "0.26.0",
+    "enzyme": "2.6.0",
+    "eslint": "3.10.2",
+    "eslint-config-l3e": "3.2.2",
+    "express": "4.14.0",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.9.0",
+    "filesize": "3.3.0",
+    "gh-pages": "0.12.0",
+    "git-rev-sync": "1.8.0",
+    "happypack": "2.2.1",
+    "html-minify-loader": "1.1.0",
+    "html-webpack-plugin": "2.24.1",
+    "identity-obj-proxy": "3.0.0",
+    "jade": "1.11.0",
+    "jade-loader": "0.8.0",
+    "jest": "17.0.3",
+    "lost": "7.1.1",
+    "markdown-it": "8.1.0",
+    "markdown-it-loader": "0.5.0",
+    "mockjs": "1.0.1-beta3",
+    "normalize.css": "5.0.0",
+    "postcss-loader": "1.1.1",
+    "postcss-sprites": "4.0.0",
+    "postcss-write-svg": "2.1.0",
+    "precss": "1.4.0",
+    "react-addons-test-utils": "15.4.0",
+    "react-router-loader": "0.5.4",
+    "react-test-renderer": "15.4.0",
+    "supervisor": "0.12.0",
+    "webpack": "1.13.3",
+    "webpack-config": "6.2.1",
+    "webpack-dashboard": "0.2.0",
+    "webpack-dev-server": "1.16.2",
+    "webpack-path-rewriter": "1.1.4"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "private": true,
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".history/"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  }
+}

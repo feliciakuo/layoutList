@@ -29,7 +29,6 @@ export function addItem(info) {
 }
 
 export function removeItem(id) {
-  console.log('removeItem', id)
   return { type: REMOVE_ITEM, id }
 }
 

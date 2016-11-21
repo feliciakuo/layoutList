@@ -6,34 +6,35 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ListItem from './ListItem'
 
-const getVisibleTodos = (items, filter) => {
+const getVisibleItems = (state, filter) => {
   switch (filter) {
     case 'SHOW_ACTIVE':
-      return items
+      return state.activeItems
     case 'SHOW_REMOVE':
-      return items
+      return state.removedItems
     default:
-      return items
+      return state.activeItems
   }
 }
 
 const mapStateToProps = (state) => {
-  // console.log('state')
+  // console.log('state', state)
   return {
-    items: getVisibleTodos(state.items, state.visbilityFilter)
+    items: getVisibleItems(state, state.visbilityFilter)
   }
 }
 
 const ListBody = ({ items }) => {
-  console.log('ListBody', items)
+  // console.log('ListBody', items)
 
-  const listItems = items.map((item) => {
-    console.log('in items', item.info.tpl)
+  const listItems = items.map((item, index) => {
+    // console.log('in items', item)
 
     return (
       <ListItem
-        key={item.info.id}
-        value={item.info}
+        key={item.id}
+        value={item}
+        index={index}
       />
     )
   })

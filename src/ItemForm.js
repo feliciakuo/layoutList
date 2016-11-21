@@ -9,13 +9,13 @@ import FormList from './FormList'
 const mapStateToProps = (state) => {
   // console.log('mapState', state.items)
   return {
-    items: state.items
+    activeItems: state.activeItems
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   onAddClick: (info) => {
-    // console.log('mapDispatch', info)
+    console.log('mapDispatch', info)
     dispatch(addItem(info))
   }
 })

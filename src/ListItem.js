@@ -9,7 +9,7 @@ import styles from './list.css'
 
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
 
   return {
     items: state.items
@@ -22,8 +22,8 @@ const mapDispatchToProps = dispatch => ({
   }
 })
 
-const ListItem = ({ value, onRemoveClick }) => {
-  console.log('inner', value)
+const ListItem = ({ value, index, onRemoveClick }) => {
+  // console.log('inner', index)
 
   return (
     <tr>
@@ -36,7 +36,7 @@ const ListItem = ({ value, onRemoveClick }) => {
       <td>{value.group}</td>
       <td className={styles.btnWrap}>
         <button>Edit</button>
-        <button onClick={() => onRemoveClick(value.id)}>Delete</button>
+        <button onClick={() => onRemoveClick(index)}>Delete</button>
       </td>
     </tr>
   )

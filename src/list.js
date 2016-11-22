@@ -17,7 +17,7 @@ const List = () => (
           <td>ver</td>
           <td>bulider</td>
           <td>group</td>
-          <td>contol</td>
+          <td>control</td>
         </tr>
       </thead>
       <ListBody />

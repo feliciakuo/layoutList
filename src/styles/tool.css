@@ -4,4 +4,8 @@
   line-height: 30px;
   text-align: right;
   background-color: #8C8C00;
+
+  & button {
+    cursor: pointer;
+  }
 }

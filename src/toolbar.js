@@ -3,24 +3,22 @@
 */
 
 import { connect } from 'react-redux'
-import { addItem } from './action'
+import { setVisibilityFilter, setAddFormSwitch } from './action'
 import ToolList from './ToolList'
 
-const getVisibleTodos = (items, filter) => {
-  switch (filter) {
-    case 'SHOW_ACTIVE':
-      return items
-  }
-}
-
 const mapStateToProps = state => ({
-  items: getVisibleTodos(state.todos, state.visibilityFilter)
+  items: state.items
 })
 
 const mapDispatchToProps = dispatch => ({
-  onAddClick: (id) => {
-    console.log('toobar', dispatch(addItem(id)))
-    dispatch(addItem(id))
+  onAddClick: (filter) => {
+    dispatch(setAddFormSwitch(filter))
+  },
+  onShowActive: (filter) => {
+    dispatch(setVisibilityFilter(filter))
+  },
+  onShowRemoves: (filter) => {
+    dispatch(setVisibilityFilter(filter))
   }
 })
 

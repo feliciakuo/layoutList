@@ -4,7 +4,9 @@
 export const ADD_ITEM = 'ADD_ITEM'
 export const EDIT_ITEM = 'EDIT_ITEM'
 export const REMOVE_ITEM = 'REMOVE_ITEM'
+export const REVERT_ITEM = 'REVERT_ITEM'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const SET_ADDFORM_SWITCH = 'SET_ADDFORM_SWITCH'
 
 /*
 * 其他常數
@@ -14,6 +16,11 @@ export const VisibilityFilters = {
   SHOW_ALL: 'SHOW_ALL',
   SHOW_ACTIVE: 'SHOW_ACTIVE',
   SHOW_REMOVE: 'SHOW_REMOVE'
+}
+
+export const addFormFilters = {
+  SHOW_FORM: 'SHOW_FORM',
+  CLOSE_FORM: 'CLOSE_FORM'
 }
 
 /*
@@ -32,10 +39,18 @@ export function removeItem(id) {
   return { type: REMOVE_ITEM, id }
 }
 
+export function revertItem(id) {
+  return { type: REVERT_ITEM, id }
+}
+
 export function editItem(index) {
   return { type: EDIT_ITEM, index }
 }
 
 export function setVisibilityFilter(filter) {
   return { type: SET_VISIBILITY_FILTER, filter }
+}
+
+export function setAddFormSwitch(filter) {
+  return { type: SET_ADDFORM_SWITCH, filter }
 }

@@ -3,16 +3,19 @@
 */
 
 import React from 'react'
-import styles from './formlist.css'
+import { addFormFilters } from './action'
+import styles from './styles/formlist.css'
 
-const FormList = ({ onAddClick }) => {
+const { CLOSE_FORM } = addFormFilters
+const FormList = ({ addFormSwitch, onSubmitClick, onCloseFormClick }) => {
+  if (addFormSwitch !== 'SHOW_FORM') { return null }
   const input = {}
   const layoutInfo = (val) => {
     const data = {}
     Object.keys(val).forEach((key) => {
       data[key] = val[key].value
     })
-    onAddClick(data)
+    onSubmitClick(data)
   }
 
   return (
@@ -36,7 +39,8 @@ const FormList = ({ onAddClick }) => {
       <label htmlFor="layoutBuilder">建立者(bulider)</label>
       <input id="layoutBuilder" ref={(val) => { input.bulider = val }} type="text" />
       <hr />
-      <button type="submit" onClick={() => layoutInfo(input)}>Submit</button>
+      <button type="submit" className={styles.submitBtn} onClick={() => layoutInfo(input)}>Submit</button>
+      <button className={styles.closeBtn} onClick={() => onCloseFormClick(CLOSE_FORM) }>X</button>
     </div>
   )
 }

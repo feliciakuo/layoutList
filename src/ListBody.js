@@ -9,16 +9,25 @@ import ListItem from './ListItem'
 const getVisibleItems = (state, filter) => {
   switch (filter) {
     case 'SHOW_ACTIVE':
-      return state.activeItems
+      return {
+        state: state.activeItems,
+        show: filter
+      }
     case 'SHOW_REMOVE':
-      return state.removedItems
+      return {
+        state: state.removedItems,
+        show: filter
+      }
     default:
-      return state.activeItems
+      return {
+        state: state.removedItems,
+        show: filter
+      }
   }
 }
 
 const mapStateToProps = (state) => {
-  // console.log('state', state)
+
   return {
     items: getVisibleItems(state, state.visbilityFilter)
   }
@@ -26,15 +35,16 @@ const mapStateToProps = (state) => {
 
 const ListBody = ({ items }) => {
   // console.log('ListBody', items)
+  const filter = items.show
 
-  const listItems = items.map((item, index) => {
-    // console.log('in items', item)
+  const listItems = items.state.map((item, index) => {
 
     return (
       <ListItem
         key={item.id}
-        value={item}
         index={index}
+        filter={filter}
+        value={item}
       />
     )
   })

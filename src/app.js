@@ -2,7 +2,7 @@ import React from 'react'
 import ToolBar from './toolbar'
 import List from './list'
 import ItemForm from './ItemForm'
-import styles from './index.css'
+import styles from './styles/index.css'
 
 const App = () => (
   <div className={styles.layout}>

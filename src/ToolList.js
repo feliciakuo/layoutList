@@ -1,10 +1,15 @@
 import React from 'react'
-import Addbtn from './Addbtn'
-import styles from './tool.css'
+import { VisibilityFilters, addFormFilters } from './action'
+import styles from './styles/tool.css'
 
-const ToolList = ({ items, onAddClick }) => (
+const { SHOW_ACTIVE, SHOW_REMOVE } = VisibilityFilters
+const { SHOW_FORM } = addFormFilters
+
+const ToolList = ({ onAddClick, onShowActive, onShowRemoves }) => (
   <div className={styles.btnWrap}>
-    <Addbtn addClick={() => onAddClick(items)} />
+    <button onClick={() => onShowActive(SHOW_ACTIVE)}>SHOW ACTIVE</button>
+    <button onClick={() => onShowRemoves(SHOW_REMOVE)}>SHOW REMOVED</button>
+    <button onClick={() => onAddClick(SHOW_FORM)}>Add</button>
   </div>
 )
 

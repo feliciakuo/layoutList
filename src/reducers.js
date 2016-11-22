@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
-import { lodash } from 'lodash'
-import { VisibilityFilters, SET_VISIBILITY_FILTER, ADD_ITEM, REMOVE_ITEM } from './action'
+import { VisibilityFilters, addFormFilters, SET_VISIBILITY_FILTER, SET_ADDFORM_SWITCH, ADD_ITEM, REMOVE_ITEM, REVERT_ITEM } from './action'
 
 const { SHOW_ACTIVE } = VisibilityFilters
-
 const visbilityFilter = (state = SHOW_ACTIVE, action) => {
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
@@ -13,39 +11,15 @@ const visbilityFilter = (state = SHOW_ACTIVE, action) => {
   }
 }
 
-// const allData = {
-//   active: [
-//     {
-//       id: -1,
-//       bulider: 'a',
-//       name: 'a',
-//       tpl: 'a',
-//       url: 'a',
-//       ver: 'a',
-//       group: 'Group A'
-//     },
-//     {
-//       id: -2,
-//       bulider: 'abc',
-//       name: 'abc',
-//       tpl: 'abc',
-//       url: 'abc',
-//       ver: 'abc',
-//       group: 'Group B'
-//     }
-//   ],
-//   removed: [
-//     {
-//       id: -3,
-//       bulider: 'DDDDD',
-//       name: 'DDDDD',
-//       tpl: 'DDDDD',
-//       url: 'DDDDD',
-//       ver: 'DDDDD',
-//       group: 'Group B'
-//     }
-//   ]
-// }
+const { CLOSE_FORM } = addFormFilters
+const addFormSwitch = (state = CLOSE_FORM, action) => {
+  switch (action.type) {
+    case SET_ADDFORM_SWITCH:
+      return action.filter
+    default:
+      return state
+  }
+}
 
 const activeData = [
   {
@@ -80,7 +54,7 @@ const removeData = [
   }
 ]
 
-let removeTarget = {}
+let removedTarget = {}
 
 const activeItems = (state = activeData, action) => {
   switch (action.type) {
@@ -90,9 +64,7 @@ const activeItems = (state = activeData, action) => {
         ...state
       ]
     case REMOVE_ITEM:
-      removeTarget = Object.assign({}, state, state.splice(action.id, 1))
-      console.log('activeItems', removeTarget)
-
+      removedTarget = Object.assign({}, state, state.splice(action.id, 1))
       return [
         ...state
       ]
@@ -104,9 +76,11 @@ const activeItems = (state = activeData, action) => {
 const removedItems = (state = removeData, action) => {
   switch (action.type) {
     case REMOVE_ITEM:
-      // const newObj = state.push(action.)
-      console.log('removeItems', state, removeTarget)
-
+      return [
+        removedTarget[0],
+        ...state
+      ]
+    case REVERT_ITEM:
       return [
         ...state
       ]
@@ -124,6 +98,7 @@ const removedItems = (state = removeData, action) => {
 
 const itemApp = combineReducers({
   visbilityFilter,
+  addFormSwitch,
   activeItems,
   removedItems
 })

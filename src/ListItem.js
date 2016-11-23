@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeItem, revertItem } from './action'
+import { removeItem, revertItem, updateEditId, setAddFormSwitch, addFormFilters } from './action'
 import styles from './styles/list.css'
 
 const mapStateToProps = (state) => {
@@ -22,11 +22,12 @@ const mapDispatchToProps = dispatch => ({
   onRevertClick: (id) => {
     dispatch(revertItem(id))
   },
-  onEditClick: (id) => {
-    console.log('onEditClick', id)
+  onEditClick: (filter, id) => {
+    dispatch(updateEditId(id))
+    dispatch(setAddFormSwitch(filter))
   }
 })
-
+const { SHOW_FORM } = addFormFilters
 const ListItem = ({ index, filter, value, onRemoveClick, onRevertClick, onEditClick }) => {
   const switchControl = []
 
@@ -35,7 +36,7 @@ const ListItem = ({ index, filter, value, onRemoveClick, onRevertClick, onEditCl
       switchControl.push(<button key={'revert'} onClick={() => onRevertClick(index)}>Revert</button>)
       break
     default:
-      switchControl.push(<button key={'edit'} onClick={() => onEditClick(index)}>Edit</button>)
+      switchControl.push(<button key={'edit'} onClick={() => onEditClick(SHOW_FORM, index)}>Edit</button>)
       switchControl.push(<button key={'del'} onClick={() => onRemoveClick(index)}>Delete</button>)
   }
 

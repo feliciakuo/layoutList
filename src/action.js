@@ -5,6 +5,7 @@ export const ADD_ITEM = 'ADD_ITEM'
 export const EDIT_ITEM = 'EDIT_ITEM'
 export const REMOVE_ITEM = 'REMOVE_ITEM'
 export const REVERT_ITEM = 'REVERT_ITEM'
+export const UPDATE_EDIT_ID = 'UPDATE_EDIT_ID'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 export const SET_ADDFORM_SWITCH = 'SET_ADDFORM_SWITCH'
 
@@ -43,8 +44,12 @@ export function revertItem(id) {
   return { type: REVERT_ITEM, id }
 }
 
-export function editItem(index) {
-  return { type: EDIT_ITEM, index }
+export function editItem(id, info) {
+  return { type: EDIT_ITEM, id, info }
+}
+
+export function updateEditId(id) {
+  return { type: UPDATE_EDIT_ID, id }
 }
 
 export function setVisibilityFilter(filter) {

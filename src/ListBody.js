@@ -20,7 +20,7 @@ const getVisibleItems = (state, filter) => {
       }
     default:
       return {
-        state: state.removedItems,
+        state: state.activeItems,
         show: filter
       }
   }
@@ -38,7 +38,6 @@ const ListBody = ({ items }) => {
   const filter = items.show
 
   const listItems = items.state.map((item, index) => {
-
     return (
       <ListItem
         key={item.id}

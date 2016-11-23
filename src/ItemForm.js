@@ -3,10 +3,11 @@
 */
 
 import { connect } from 'react-redux'
-import { addItem, setAddFormSwitch } from './action'
+import { addItem, setAddFormSwitch, updateEditId, editItem } from './action'
 import FormList from './FormList'
 
 const mapStateToProps = state => ({
+  editIndex: state.editIndex,
   activeItems: state.activeItems,
   addFormSwitch: state.addFormSwitch
 })
@@ -15,7 +16,11 @@ const mapDispatchToProps = dispatch => ({
   onSubmitClick: (info) => {
     dispatch(addItem(info))
   },
+  onEditClick: (id, info) => {
+    dispatch(editItem(id, info))
+  },
   onCloseFormClick: (filter) => {
+    dispatch(updateEditId(''))
     dispatch(setAddFormSwitch(filter))
   }
 })

@@ -3,8 +3,8 @@
 */
 
 import React from 'react'
-import { VisibilityFilters, addFormFilters } from './action'
-import styles from './styles/tool.css'
+import { VisibilityFilters, addFormFilters } from './../actions/action'
+import styles from './../styles/tool.css'
 
 const { SHOW_ACTIVE, SHOW_REMOVE } = VisibilityFilters
 const { SHOW_FORM } = addFormFilters

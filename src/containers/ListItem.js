@@ -4,8 +4,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeItem, revertItem, updateEditId, setAddFormSwitch, addFormFilters } from './action'
-import styles from './styles/list.css'
+import { removeItem, revertItem, updateEditId, setAddFormSwitch, addFormFilters } from './../actions/action'
+import styles from './../styles/list.css'
 
 const mapStateToProps = (state) => {
   // console.log('state', state)

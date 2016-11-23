@@ -3,7 +3,7 @@
 */
 
 import React from 'react'
-import ListBody from './ListBody'
+import ListBody from './../containers/ListBody'
 
 const List = () => (
   <div>

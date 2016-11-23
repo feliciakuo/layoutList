@@ -4,7 +4,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import ListItem from './ListItem'
+import ListItem from './../containers/ListItem'
 
 const getVisibleItems = (state, filter) => {
   switch (filter) {

@@ -3,8 +3,8 @@
 */
 
 import { connect } from 'react-redux'
-import { setVisibilityFilter, setAddFormSwitch } from './action'
-import ToolList from './ToolList'
+import { setVisibilityFilter, setAddFormSwitch } from './../actions/action'
+import ToolList from './../components/ToolList'
 
 const mapStateToProps = state => ({
   items: state.items

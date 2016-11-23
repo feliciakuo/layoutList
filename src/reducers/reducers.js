@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { VisibilityFilters, addFormFilters, SET_VISIBILITY_FILTER, SET_ADDFORM_SWITCH, ADD_ITEM, REMOVE_ITEM, REVERT_ITEM, EDIT_ITEM, UPDATE_EDIT_ID } from './action'
+import { VisibilityFilters, addFormFilters, SET_VISIBILITY_FILTER, SET_ADDFORM_SWITCH, ADD_ITEM, REMOVE_ITEM, REVERT_ITEM, EDIT_ITEM, UPDATE_EDIT_ID } from './../actions/action'
 
 const { SHOW_ACTIVE } = VisibilityFilters
 const visbilityFilter = (state = SHOW_ACTIVE, action) => {
@@ -57,7 +57,6 @@ const removeData = [
 const editIndex = (state = '', action) => {
   switch (action.type) {
     case UPDATE_EDIT_ID:
-      console.log('editIndex', action)
       return action.id
     default:
       return state

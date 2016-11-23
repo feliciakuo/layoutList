@@ -3,8 +3,8 @@
 */
 
 import { connect } from 'react-redux'
-import { addItem, setAddFormSwitch, updateEditId, editItem } from './action'
-import FormList from './FormList'
+import { addItem, setAddFormSwitch, updateEditId, editItem } from './../actions/action'
+import FormList from './../components/FormList'
 
 const mapStateToProps = state => ({
   editIndex: state.editIndex,

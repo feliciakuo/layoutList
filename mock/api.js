@@ -11,6 +11,50 @@ router.get('/hello', (req, res) => {
   })
 })
 
+router.get('/removed', (req, res) => {
+  res.json({
+    id: -3,
+    bulider: 'DDDDD',
+    name: 'DDDDD',
+    tpl: 'DDDDD',
+    url: 'DDDDD',
+    ver: '3',
+    group: 'Group B'
+  })
+})
+
+router.get('/active', (req, res) => {
+  res.json([
+    {
+      id: -1,
+      bulider: 'a',
+      name: 'a',
+      tpl: 'a',
+      url: 'a',
+      ver: '1',
+      group: 'Group A'
+    },
+    {
+      id: -2,
+      bulider: 'kkk',
+      name: 'kkk',
+      tpl: 'kkk',
+      url: 'kkk',
+      ver: '5',
+      group: 'Group B'
+    },
+    {
+      id: -4,
+      bulider: 'abc',
+      name: 'abc',
+      tpl: 'abc',
+      url: 'abc',
+      ver: '2',
+      group: 'Group B'
+    }
+  ])
+})
+
 router.get('/data', (req, res) => {
   const random = mock.Random
   const data = {

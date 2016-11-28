@@ -3,7 +3,9 @@
 */
 
 import { connect } from 'react-redux'
-import { setVisibilityFilter, setAddFormSwitch } from './../actions/action'
+import {
+  setVisibilityFilter, setAddFormSwitch, selectSubreddit, fetchPosts
+} from './../actions/action'
 import ToolList from './../components/ToolList'
 
 const mapStateToProps = state => ({
@@ -19,6 +21,8 @@ const mapDispatchToProps = dispatch => ({
   },
   onShowRemoves: (filter) => {
     dispatch(setVisibilityFilter(filter))
+    // dispatch(selectSubreddit('removed'))
+    dispatch(fetchPosts('removed', 'http://localhost:3000/removed'))
   }
 })
 

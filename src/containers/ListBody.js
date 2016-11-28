@@ -10,12 +10,15 @@ const getVisibleItems = (state, filter) => {
   switch (filter) {
     case 'SHOW_ACTIVE':
       return {
-        state: state.activeItems,
+        state: state.postsBySubreddit.active.items,
+        // state: state.activeItems,
         show: filter
       }
     case 'SHOW_REMOVE':
+      console.log('SHOW_REMOVE', state)
       return {
-        state: state.removedItems,
+        // state: state.removedItems,
+        state: state.postsBySubreddit.removed.items,
         show: filter
       }
     default:
@@ -27,14 +30,13 @@ const getVisibleItems = (state, filter) => {
 }
 
 const mapStateToProps = (state) => {
-
   return {
     items: getVisibleItems(state, state.visbilityFilter)
   }
 }
 
 const ListBody = ({ items }) => {
-  // console.log('ListBody', items)
+  console.log('ListBody', items.state)
   const filter = items.show
 
   const listItems = items.state.map((item, index) => {

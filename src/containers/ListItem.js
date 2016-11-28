@@ -8,9 +8,10 @@ import { removeItem, revertItem, updateEditId, setAddFormSwitch, addFormFilters 
 import styles from './../styles/list.css'
 
 const mapStateToProps = (state) => {
-  // console.log('state', state)
+  console.log('state111', state)
 
   return {
+    // items: state.postsBySubreddit.rmItems.items
     items: state.items
   }
 }
@@ -30,6 +31,8 @@ const mapDispatchToProps = dispatch => ({
 const { SHOW_FORM } = addFormFilters
 const ListItem = ({ index, filter, value, onRemoveClick, onRevertClick, onEditClick }) => {
   const switchControl = []
+
+  console.log('value', value)
 
   switch (filter) {
     case 'SHOW_REMOVE':

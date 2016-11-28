@@ -83,28 +83,35 @@ export function requestPosts(subreddit) {
 
 // 當網路請求傳回來時，我們會 dispatch RECEIVE_POSTS
 export function receivePosts(subreddit, json) {
+  console.log('receivePosts', json)
   return {
     type: RECEIVE_POSTS,
     subreddit,
-    posts: json.data.children.map(child => child.data),
+    posts: json,
+    // posts: json.data.children.map(child => child.data),
     receiveAt: Date.now()
   }
 }
 
-// thunk action creator
-export function fetchPosts(subreddit) {
+/*
+* thunk action creator
+*/
+
+export function fetchPosts(subreddit, url) {
 
   // Thunk middleware 知道如何去處理 function
   return (dispatch) => {
-    // 呼叫 API
+    // API 呼叫開始
     dispatch(requestPosts(subreddit))
 
-    return fetch('http://localhost:3000/removed')
+    // 回傳一個 promise 以等待
+    return fetch(url)
       .then((response) => {
         return response.json()
       }).then((json) => {
-        console.log('parsed json', json)
+        // console.log('parsed json', json)
 
+        // 用 API 呼叫的結果來更新應用程式的 state
         dispatch(receivePosts(subreddit, json))
       }).catch((ex) => {
         console.log('parsing failed', ex)

@@ -12,15 +12,17 @@ router.get('/hello', (req, res) => {
 })
 
 router.get('/removed', (req, res) => {
-  res.json({
-    id: -3,
-    bulider: 'DDDDD',
-    name: 'DDDDD',
-    tpl: 'DDDDD',
-    url: 'DDDDD',
-    ver: '3',
-    group: 'Group B'
-  })
+  res.json([
+    {
+      id: -4,
+      bulider: 'RRR',
+      name: 'RRR',
+      tpl: 'RRR',
+      url: 'RRR',
+      ver: '3',
+      group: 'Group B'
+    }
+  ])
 })
 
 router.get('/active', (req, res) => {
@@ -44,7 +46,7 @@ router.get('/active', (req, res) => {
       group: 'Group B'
     },
     {
-      id: -4,
+      id: -3,
       bulider: 'abc',
       name: 'abc',
       tpl: 'abc',

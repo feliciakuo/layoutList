@@ -13,14 +13,14 @@ import {
   REQUEST_POSTS, RECEIVE_POSTS
 } from './../actions/action'
 
-function selectedSubreddit(state = 'reactjs', action) {
-  switch (action.type) {
-    case SELECT_SUBREDDIT:
-      return action.subreddit
-    default:
-      return state
-  }
-}
+// function selectedSubreddit(state = 'reactjs', action) {
+//   switch (action.type) {
+//     case SELECT_SUBREDDIT:
+//       return action.subreddit
+//     default:
+//       return state
+//   }
+// }
 
 function posts(state = {
   isFetching: false,
@@ -29,15 +29,18 @@ function posts(state = {
 }, action) {
   switch (action.type) {
     case INVALDATE_SUBREDDIT:
+      console.log('INVALDATE_SUBREDDIT')
       return Object.assign({}, state, {
         didInvalidate: true
       })
     case REQUEST_POSTS:
+      console.log('REQUEST_POSTS')
       return Object.assign({}, state, {
         isFetching: true,
         didInvalidate: false
       })
     case RECEIVE_POSTS:
+      console.log('RECEIVE_POSTS', action.posts)
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
@@ -68,7 +71,7 @@ const itemApp = combineReducers({
   activeItems,
   removedItems,
   editIndex,
-  selectedSubreddit,
+  // selectedSubreddit,
   postsBySubreddit
 })
 
